@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Week02 Exercises</title>
+</head>
+<body>
+<p>Lowest number method.</p>
+<p id="lowestNumber"></p>
+
+<p>Odd/Even</p>
+<p id="oddEven"></p>
+
+<p>CountChar</p>
+<p id="count"></p>
+
+
+
+<script>
+function myFunction(x,y) {
+    var low_num;
+  if(x < y) {
+    low_num = x;
+  }
+  else {
+   low_num = y;
+  }
+  return low_num
+}
+
+function oddOrEven(number) {
+    var modulo = number % 2
+    var b;
+    if(modulo == 0){
+        console.log("True")
+        b = "true"; }
+
+    else if (modulo == 1) {
+        console.log("False")      
+        b = "false";
+    }
+    return b;
+}
+
+function countChar(word, letter) {
+    var count = 0;
+    for(var i = 0; i < word.length; i++) {
+        if(word[i] == letter)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+document.getElementById("lowestNumber").innerHTML = myFunction(6,10);
+document.getElementById("oddEven").innerHTML = oddOrEven(101);
+document.getElementById("count").innerHTML = countChar("BBC", "B")
+</script>
+
+</body>
+
+</html>
