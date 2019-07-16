@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Retry</title>
+</head>
+<body>
+    
+</body>
+<script>
+class MultiplicatorUnitFailure extends Error {}
+
+function primitiveMultiply(a, b) {
+  if (Math.random() < 0.2) {
+    return a * b;
+  } else {
+    throw new MultiplicatorUnitFailure("Klunk");
+  }
+}
+
+function reliableMultiply(a, b) {
+  for (;;) {
+    try {
+      return primitiveMultiply(a, b);
+    } catch (e) {
+      if (!(e instanceof MultiplicatorUnitFailure))
+        throw e;
+    }
+  }
+}
+
+console.log(reliableMultiply(8, 8));
+</script>
+</html>
